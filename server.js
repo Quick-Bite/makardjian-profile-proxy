@@ -5,13 +5,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use('/restaurants/:id', express.static(path.join(__dirname, 'public/')));
 
 app.get('/restaurants/:id/profiles', (req, res) => {
   // get all the profile from profile server
-  console.log(req.params.id, 'req.params.id');
   httpReq.get(`http://localhost:3002/restaurants/${req.params.id}/profiles`)
   .then(function (req) {
     res.status(200).send(req.data);
