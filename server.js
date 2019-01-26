@@ -31,7 +31,7 @@ app.get('/restaurants/:id//reviews', (req, res) => {
   });
 });
 
-app.get('/restaurants/:id/suggestions', (req, res) => {
+app.get('/restaurants/:id//suggestions', (req, res) => {
   // get all the Suggestions from the suggestions server
   httpReq.get(`http://18.188.10.73/restaurants/${req.params.id}/suggestions`)
   .then(function (req) {
